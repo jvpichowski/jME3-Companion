@@ -71,24 +71,4 @@ public class CollisionUtilsTest extends SimpleApplication {
 
     }
 
-
-
-//    public static void uv3(CollisionResult collisionResult, Ray ray){
-//        Transform t = collisionResult.getGeometry().getWorldTransform();
-//        Vector3f origin = ray.origin;
-//        Vector3f dir = ray.direction;
-//
-//    inverse
-//        t.transformVector(origin, origin);
-//        t.transformVector(dir, dir);
-//        Ray r = new Ray(origin, dir);
-//
-//        Vector3f out = new Vector3f();
-//        Triangle tri = new Triangle();
-//        collisionResult.getTriangle(tri);
-//        r.intersectWherePlanar(tri, out);
-//        System.out.println(out);
-//
-//    }
-
 }

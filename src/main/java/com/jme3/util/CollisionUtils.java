@@ -14,7 +14,6 @@ import java.nio.ShortBuffer;
  */
 public class CollisionUtils {
 
-
     public static void getUV(CollisionResult collisionResult, Ray ray, Vector2f uv){
         Triangle triangle = new Triangle();
         collisionResult.getTriangle(triangle);
@@ -96,7 +95,6 @@ public class CollisionUtils {
     }
 
     public static void getUV(Vector2f texCoord1, Vector2f texCoord2, Vector2f texCoord3, Vector2f st, Vector2f uv){
-        //http://geomalgorithms.com/a06-_intersect-2.html
         uv.set(texCoord1.add(texCoord2.subtract(texCoord1).mult(st.x))
                 .add(texCoord3.subtract(texCoord1).mult(st.y)));
     }
@@ -121,7 +119,6 @@ public class CollisionUtils {
             Vector3f v = triangle.get3().subtract(triangle.get1());
             Vector3f w = point.subtract(triangle.get1());
 
-            //http://www.rzbt.haw-hamburg.de/dankert/WWWErgVert/html/2_gleichungen_mit_2_unbekannte.html
             float factor = u.x*v.y - v.x*u.y;
             float s = (w.x*v.y-w.y*v.x)/factor;
             float t = (w.y*u.x-w.x*u.y)/factor;
