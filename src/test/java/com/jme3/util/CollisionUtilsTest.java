@@ -5,13 +5,15 @@ import com.jme3.app.SimpleApplication;
 import com.jme3.collision.CollisionResult;
 import com.jme3.collision.CollisionResults;
 import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
-import com.jme3.math.Ray;
-import com.jme3.math.Vector2f;
+import com.jme3.math.*;
+import com.jme3.renderer.Caps;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.VertexBuffer;
 import com.jme3.scene.shape.Cylinder;
 import com.jme3.texture.Texture;
 import com.jme3.texture.image.ImageRaster;
+
+import java.util.Collection;
 
 /**
  * Created by jan on 11.06.16.
@@ -56,11 +58,6 @@ public class CollisionUtilsTest extends SimpleApplication {
             throw new IllegalStateException();
         }
 
-//        CollisionUtils.addTriangleMarker(collision, getRootNode(), ColorRGBA.Green, getAssetManager());
-//        CollisionUtils.addContactMarker(collision, getRootNode(), ColorRGBA.Blue, getAssetManager());
-//        CollisionUtils.markTriangle(collision, texture, ColorRGBA.Green);
-//        CollisionUtils.markContact(collision, texture, ColorRGBA.Blue);
-//        CollisionUtils.markTrianglePoints(collision, texture, ColorRGBA.Black);
 
         Vector2f uv = new Vector2f();
         CollisionUtils.getUV(collision, uv);
