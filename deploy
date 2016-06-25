@@ -25,7 +25,7 @@
 
     "files":
         [
-        {"includePattern": "build/libs/(.*)", "uploadPattern": "$1"}
+        {"uploadPattern": "build/libs/(.*)"}
         ],
     "publish": true
 }
