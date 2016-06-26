@@ -28,8 +28,8 @@ def getVersionName = { ->
 
 
 bintray {
-    user = System.getenv('bintray.user')//properties.getProperty("bintray.user")
-    key = System.getenv('bintray.apikey')//properties.getProperty("bintray.apikey")
+    user = System.getenv('BINTRAY_USER')//properties.getProperty("bintray.user")
+    key = System.getenv('BINTRAY_APIKEY')//properties.getProperty("bintray.apikey")
 
     configurations = ['archives']
     pkg {
