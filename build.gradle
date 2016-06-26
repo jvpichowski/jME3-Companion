@@ -17,37 +17,32 @@ mainClassName='mygame.Main'
 /*
  * Gets the version name from the latest Git tag
  */
-def getVersionName = { ->
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'describe', '--tags'
-        standardOutput = stdout
-    }
-    return stdout.toString().trim()
-}
+//def getVersionName = { ->
+//    def stdout = new ByteArrayOutputStream()
+//    exec {
+//        commandLine 'git', 'describe', '--tags'
+//        standardOutput = stdout
+//    }
+//    return stdout.toString().trim()
+//}
+
 
 
 bintray {
-    user = System.getenv('BINTRAY_USER')//properties.getProperty("bintray.user")
-    key = System.getenv('BINTRAY_APIKEY')//properties.getProperty("bintray.apikey")
-
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
     configurations = ['archives']
     pkg {
-        repo = "maven"
-        name = "jME3-Companion gradle"
-        websiteUrl = ""
-        vcsUrl = "https://github.com/jvpichowski/jME3-Companion"
-        licenses = ["BSD 3-Clause"]
-        dryRun = false //[Default: false] Whether to run this as dry-run, without deploying
-        publish = true //[Default: false] Whether version should be auto published after an upload
-        override = false //[Default: false] Whether to override version artifacts already published
+        repo = 'generic'
+        name = 'gradle-bintray-plugin-conf-example'
+        userOrg = user
+//        licenses = ['Apache-2.0']
+//        vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
         version {
-            name = getVersionName()//'prealpha'
-            released  = new Date()
-            licenses = ["BSD 3-Clause"]
-//            desc = 'jME3.1 Companion prealpha'
-//            vcsTag = 'prealpha'
-     //       attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+            name = 'test'
+            desc = 'Test Version'
+            vcsTag = '0.0.1'
+//            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
 }
